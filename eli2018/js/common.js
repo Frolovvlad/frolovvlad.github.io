@@ -32,5 +32,48 @@ for (let link of links) {
 }
 
 /* ----------------------------------------------------------------
-                [ --- ]
+                [ Owl Carousel]
 -----------------------------------------------------------------*/
+
+$(document).ready(function () {
+	$(".owl-carousel").owlCarousel({
+		margin: 30,
+		autoplay: true,
+		autoplayTimeout: 3000,
+		autoplayHoverPause: true,
+		loop: true,
+		dots: false,
+		nav: true,
+		navText: ["<img src='../img/arrow.png'>","<img src='../img/arrow.png'>"],
+		responsiveClass: true,
+		items: 3,
+	});
+});
+
+
+/* ----------------------------------------------------------------
+                [ Bacc call ]
+-----------------------------------------------------------------*/
+
+$(document).ready(function () {
+	const buttons = document.querySelectorAll(".book");
+	const backCall = document.querySelector('.back-call');
+	const blur = document.querySelector('.blur');
+	const thanks = document.querySelector('.thanks');
+	const closeBlur = document.querySelector('.close-blur');
+
+	for(let btn of buttons)	{
+		btn.addEventListener('click', event => {
+			event.preventDefault();
+
+			blur.classList.add("show");
+			backCall.classList.add("show");
+		})
+	}
+
+	closeBlur.addEventListener('click', ev => {
+		blur.classList.remove("show");
+		backCall.classList.remove("show");
+		thanks.classList.remove("show");
+	})
+});
